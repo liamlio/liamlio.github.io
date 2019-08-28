@@ -35,12 +35,13 @@ async function app() {
         // Get the most likely class and confidences from the classifier module.
         const result = await classifier.predictClass(activation);
   
-        const classes = ['A', 'B', 'C', 'No Action'];
+        //const classes = ['A', 'B', 'C', 'No Action'];
         // if (classes[result.classIndex] == 'No Action' ){
         //     document.getElementById('console').innerText = `
         //         prediction: No Action}\n
         //         probability: No Action}`
         // } else {
+        const classes = ['A', 'B', 'C']
         document.getElementById('console').innerText = `
           prediction: ${classes[result.classIndex]}\n
           probability: ${result.confidences[result.classIndex]}
