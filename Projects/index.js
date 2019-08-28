@@ -1,5 +1,5 @@
 let net;
-const webcamElement = document.getElementById("webcam")
+const webcamElement = document.getElementById("webcam");
 
 
 async function app() {
