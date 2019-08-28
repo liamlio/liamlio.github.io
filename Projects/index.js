@@ -3,26 +3,28 @@ const webcamElement = document.getElementById("webcam");
 
 
 async function app() {
-    console.log('loading mobilenet..');
-
-    //load the model.
+    console.log('Loading mobilenet..');
+  
+    // Load the model.
     net = await mobilenet.load();
-    console.log('Succesfully loaded model');
-
-    //make a prediction through the model on a continous image from our webcam.
-    await setUpWebcam();
-    while (true) {
-        const result = await net.classify(webcamElement)
+    console.log('Sucessfully loaded model');
     
-    document.getElementById('console').innerText =` 
-    prediction: ${result[0].className}\n
-    probability: ${result[0].probability}`;
-
-    //To clearify that it should wait untill the next frame in order to predict again
-    await tf.nextFrame();  
+    await setupWebcam();
+    while (true) {
+      const result = await net.classify(webcamElement);
+  
+      document.getElementById('console').innerText = `
+        prediction: ${result[0].className}\n
+        probability: ${result[0].probability}
+      `;
+  
+      // Give some breathing room by waiting for the next animation frame to
+      // fire.
+      await tf.nextFrame();
     }
-}
+  }
 
+//Function to setup webcam permissions
 async function setupWebcam() {
     return new Promise((resolve, reject) => {
       const navigatorAny = navigator;
