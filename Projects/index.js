@@ -12,4 +12,4 @@
       const result = await net.classify(imgEl);
       console.log(result);
   }
-  app()
+  app();
