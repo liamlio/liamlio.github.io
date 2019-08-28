@@ -44,7 +44,7 @@ async function app() {
       await tf.nextFrame();
     }
   }
-  }
+  
 
 //Function to setup webcam permissions
 async function setupWebcam() {
