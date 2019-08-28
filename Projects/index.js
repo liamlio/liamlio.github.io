@@ -36,16 +36,16 @@ async function app() {
         const result = await classifier.predictClass(activation);
   
         const classes = ['A', 'B', 'C', 'No Action'];
-        if (classes[result.classIndex] == 'No Action' ){
-            document.getElementById('console').innerText = `
-                prediction: No Action}\n
-                probability: No Action}`
-        } else {
+        // if (classes[result.classIndex] == 'No Action' ){
+        //     document.getElementById('console').innerText = `
+        //         prediction: No Action}\n
+        //         probability: No Action}`
+        // } else {
         document.getElementById('console').innerText = `
           prediction: ${classes[result.classIndex]}\n
           probability: ${result.confidences[result.classIndex]}
         `;
-      }
+    //   }
   
       await tf.nextFrame();
     }
